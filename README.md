@@ -9,3 +9,5 @@ Following api's are implemented
 * Get Accounts
 * Get Locations
 * Get Reviews
+
+uses Google's REST endpoints and not the Java client library.
