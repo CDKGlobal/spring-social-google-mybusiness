@@ -9,5 +9,6 @@ Following api's are implemented
 * Get Accounts
 * Get Locations
 * Get Reviews
+* Reply to a Review
 
 uses Google's REST endpoints and not the Java client library.
