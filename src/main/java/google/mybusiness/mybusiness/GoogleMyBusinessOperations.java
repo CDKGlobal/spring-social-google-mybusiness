@@ -31,5 +31,15 @@ public interface GoogleMyBusinessOperations {
      */
     public Reviews getReviews(String accountName, String locationName);
 
+    /**
+     * Reply to a review - Business Response
+     * @param reviewId
+     * @param accountName
+     * @param locationName
+     * @return
+     */
+    public ReviewReply replyReview(String reviewId, String businessResponse, String accountName, String locationName);
+
+
 
 }

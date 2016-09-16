@@ -73,4 +73,31 @@ public class GoogleMyBusinessTemplate extends AbstractGoogleApiOperations implem
         }
         return reviews;
     }
+
+    /**
+     * Post Business Response for a Review
+     * @param reviewId
+     * @param businessResponse
+     * @param accountName
+     * @param locationName
+     * @return
+     */
+    public ReviewReply replyReview(String reviewId, String businessResponse, String accountName, String locationName) {
+        ReviewReply reviewReply;
+        try {
+            String replyReviewUrl = MY_BUSINESS_GOOGLE_REVIEW_REPLY
+                    .replace("{reviewName}", reviewId)
+                    .replace("{accountName}", accountName)
+                    .replace("{locationName}", locationName);
+            ReviewReply request = new ReviewReply();
+            request.setComment(businessResponse);
+            reviewReply = saveEntity(replyReviewUrl, request);
+        } catch (Exception ex) {
+            LOGGER.error("Error posting business response to Google", ex);
+            reviewReply = new ReviewReply(ex.getMessage());
+        }
+        return reviewReply;
+
+    }
+
 }
